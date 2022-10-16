@@ -22,6 +22,8 @@ func GetGlobalIp() string {
 	resolvers := []string{
 		"https://api.ipify.org?format=text",
 		"http://api.ipify.org",
+		"http://api.ipify.org?format=text",
+		"https://api.ipify.org",
 	}
 
 	for {
