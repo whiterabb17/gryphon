@@ -1,7 +1,6 @@
 package deepfire
 
 import (
-	"github.com/google/gopacket/pcap"
 	"strings"
 )
 
