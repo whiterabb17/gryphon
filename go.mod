@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/anvie/port-scanner v0.0.0-20180225151059-8159197d3770
+	github.com/atotto/clipboard v0.1.4
 	github.com/c-robinson/iplib v1.0.3
 	github.com/fatih/color v1.13.0
 	github.com/google/gopacket v1.1.19
@@ -16,7 +17,6 @@ require (
 )
 
 require (
-	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect
 	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
