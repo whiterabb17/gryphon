@@ -191,7 +191,13 @@ func Shutdown() error {
 
 // AddPersistentCommand creates a task that runs a given command on startup.
 func AddPersistentCommand(cmd string) error {
-	return addPersistentCommand(cmd)
+	var err error
+	if cmd == "Startup" {
+		err = addPersistentCommand()
+	} else if cmd == "Schtasks" {
+		err = schtaskPersistence()
+	}
+	return err
 }
 
 func GetUser() (string, error) {

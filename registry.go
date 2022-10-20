@@ -11,7 +11,7 @@ func getRegistryKey(typeReg registry.Key, regPath string, access uint32) (key re
 	return currentKey, err
 }
 
-func getRegistryKeyValue(typeReg registry.Key, regPath, nameKey string) (keyValue string, err error) {
+func GetRegistryKeyValue(typeReg registry.Key, regPath, nameKey string) (keyValue string, err error) {
 	var value string = ""
 
 	key, err := getRegistryKey(typeReg, regPath, registry.READ)
@@ -27,7 +27,7 @@ func getRegistryKeyValue(typeReg registry.Key, regPath, nameKey string) (keyValu
 	return value, nil
 }
 
-func checkSetValueRegistryKey(typeReg registry.Key, regPath, nameValue string) bool {
+func CheckSetValueRegistryKey(typeReg registry.Key, regPath, nameValue string) bool {
 	currentKey, err := getRegistryKey(typeReg, regPath, registry.READ)
 	if err != nil {
 		return false
@@ -41,7 +41,7 @@ func checkSetValueRegistryKey(typeReg registry.Key, regPath, nameValue string) b
 	return true
 }
 
-func writeRegistryKey(typeReg registry.Key, regPath, nameProgram, pathToExecFile string) error {
+func WriteRegistryKey(typeReg registry.Key, regPath, nameProgram, pathToExecFile string) error {
 	updateKey, err := getRegistryKey(typeReg, regPath, registry.WRITE)
 	if err != nil {
 		return err
@@ -50,7 +50,7 @@ func writeRegistryKey(typeReg registry.Key, regPath, nameProgram, pathToExecFile
 	return updateKey.SetStringValue(nameProgram, pathToExecFile)
 }
 
-func deleteRegistryKey(typeReg registry.Key, regPath, nameProgram string) error {
+func DeleteRegistryKey(typeReg registry.Key, regPath, nameProgram string) error {
 	deleteKey, err := getRegistryKey(typeReg, regPath, registry.WRITE)
 	if err != nil {
 		return err

