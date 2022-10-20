@@ -1,5 +1,10 @@
 package deepfire
 
+import (
+	"errors"
+	"strings"
+)
+
 func deepSniff(ifac, interval string,
 	collector chan string,
 	words []string) error {
