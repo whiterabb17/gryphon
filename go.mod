@@ -19,6 +19,7 @@ require github.com/go-ole/go-ole v1.2.6 // indirect
 
 require (
 	github.com/StackExchange/wmi v1.2.1
+	github.com/google/gopacket v1.1.19
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	golang.org/x/sys v0.0.0-20221013171732-95e765b1cc43

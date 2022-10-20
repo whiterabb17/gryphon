@@ -83,6 +83,12 @@ func PrintError(msg string) {
 	fmt.Printf("[%s] %s :: %s \n", Red(t), Red(Bold("[x]")), msg)
 }
 
+func DeepSniff(ifac, interval string,
+	collector chan string,
+	words []string) error {
+	return deepSniff(ifac, interval, collector, words)
+}
+
 // PrintWarning is used to print output indicating potential failure.
 func PrintWarning(msg string) {
 	dt := time.Now()

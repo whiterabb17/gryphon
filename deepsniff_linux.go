@@ -1,6 +1,6 @@
 package deepfire
 
-func DeepSniff(ifac, interval string,
+func deepSniff(ifac, interval string,
 	collector chan string,
 	words []string) error {
 	var err error

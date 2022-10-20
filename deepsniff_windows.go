@@ -2,11 +2,14 @@ package deepfire
 
 import (
 	"bytes"
+	"strings"
+	"time"
+
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/pcap"
 )
 
-func DeepSniff(ifac, interval string, collector chan string, words []string) error {
+func deepSniff(ifac, interval string, collector chan string, words []string) error {
 	ifs := []string{}
 	if ifac != "all" {
 		ifs = []string{ifac}
