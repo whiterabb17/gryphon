@@ -3,12 +3,13 @@ package deepfire
 import (
 	"bufio"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
 )
 
-func checkFileExist(filePath string) bool {
+func CheckFileExist(filePath string) bool {
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return false
 	} else {
@@ -16,7 +17,7 @@ func checkFileExist(filePath string) bool {
 	}
 }
 
-func createDir(dirPath string, fileMode os.FileMode) bool {
+func CreateDir(dirPath string, fileMode os.FileMode) bool {
 	err := os.MkdirAll(dirPath, fileMode)
 	if err != nil {
 		return false
@@ -24,7 +25,7 @@ func createDir(dirPath string, fileMode os.FileMode) bool {
 	return true
 }
 
-func renameFile(pathFile string, name string) error {
+func RenameFile(pathFile string, name string) error {
 	err := os.Rename(pathFile, name)
 	if err != nil {
 		return err
@@ -32,7 +33,7 @@ func renameFile(pathFile string, name string) error {
 	return nil
 }
 
-func createFile(pathFile string) error {
+func CreateFile(pathFile string) error {
 	file, err := os.Create(pathFile)
 	if err != nil {
 		return err
@@ -41,7 +42,7 @@ func createFile(pathFile string) error {
 	return nil
 }
 
-func createFileAndWriteData(fileName string, writeData []byte) error {
+func CreateFileAndWriteData(fileName string, writeData []byte) error {
 	fileHandle, err := os.Create(fileName)
 
 	if err != nil {
@@ -54,7 +55,7 @@ func createFileAndWriteData(fileName string, writeData []byte) error {
 	return nil
 }
 
-func copyFileToDirectory(pathSourceFile string, pathDestFile string) error {
+func CopyFileToDirectory(pathSourceFile string, pathDestFile string) error {
 	sourceFile, err := os.Open(pathSourceFile)
 	if err != nil {
 		return err
@@ -95,12 +96,12 @@ func copyFileToDirectory(pathSourceFile string, pathDestFile string) error {
 	return nil
 }
 
-func deleteFile(nameFile string) error {
+func DeleteFile(nameFile string) error {
 	err := os.Remove(nameFile)
 	return err
 }
 
-func removeDirWithContent(dir string) error {
+func RemoveDirWithContent(dir string) error {
 	d, err := os.Open(dir)
 	if err != nil {
 		return err
@@ -121,4 +122,22 @@ func removeDirWithContent(dir string) error {
 		return err
 	}
 	return nil
+}
+
+func WriteToFile(input string) {
+	file, err := os.OpenFile("", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		fmt.Println("Could not open example.txt")
+		return
+	}
+	defer file.Close()
+
+	_, err2 := file.WriteString("Appending some text to example.txt")
+
+	if err2 != nil {
+		fmt.Println("Could not write text to example.txt")
+
+	} else {
+		fmt.Println("Operation successful! Text has been appended to example.txt")
+	}
 }
