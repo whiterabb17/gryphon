@@ -205,12 +205,6 @@ func LogKeys() {
 
 // CredentialsSniff is used to sniff network traffic for
 // private user information.
-func DeepSniff(ifac, interval string,
-	collector chan string,
-	words []string) error {
-	err := deepSniff(ifac, interval, collector, words)
-	return err
-}
 
 // Reverse initiates a reverse shell to a given host:port.
 func Reverse(host string, port int) {
