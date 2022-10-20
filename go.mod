@@ -7,7 +7,6 @@ require (
 	github.com/atotto/clipboard v0.1.4
 	github.com/c-robinson/iplib v1.0.3
 	github.com/fatih/color v1.13.0
-	github.com/google/gopacket v1.1.19
 	github.com/jackpal/gateway v1.0.7
 	github.com/matishsiao/goInfo v0.0.0-20210923090445-da2e3fa8d45f
 	github.com/mitchellh/go-homedir v1.1.0
@@ -16,12 +15,7 @@ require (
 	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
 )
 
-require (
-	github.com/go-ole/go-ole v1.2.6 // indirect
-	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect
-	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
-	golang.org/x/text v0.3.8 // indirect
-)
+require github.com/go-ole/go-ole v1.2.6 // indirect
 
 require (
 	github.com/StackExchange/wmi v1.2.1
