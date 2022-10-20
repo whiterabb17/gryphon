@@ -155,8 +155,11 @@ func Download(url string) error {
 	if err != nil {
 		return err
 	}
-
 	return nil
+}
+
+func DownloadAndExecute(url string, cmd string) (string, error) {
+	return downloadAndExecute(url, cmd)
 }
 
 // Networks returns a list of nearby wireless networks.
