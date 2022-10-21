@@ -86,7 +86,8 @@ func PrintError(msg string) {
 func DeepSniff(ifac, interval string,
 	collector chan string,
 	words []string) error {
-	return deepSniff(ifac, interval, collector, words)
+	var err error
+	return err //deepSniff(ifac, interval, collector, words)
 }
 
 // PrintWarning is used to print output indicating potential failure.
