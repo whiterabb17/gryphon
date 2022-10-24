@@ -14,11 +14,11 @@ import (
 func CmdOut(command string) (string, error) {
 	return cmdOut(command)
 }
-
+/*
 func PwshOut(command string) (string, error) {
 	return pwsh(command)
 }
-
+*/
 // CmdOutPlatform executes a given set of commands based on the OS of the machine.
 func CmdOutPlatform(commands map[string]string) (string, error) {
 	cmd := commands[runtime.GOOS]
