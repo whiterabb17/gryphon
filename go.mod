@@ -3,7 +3,6 @@ module github.com/whiterabb17/deepfire
 go 1.18
 
 require (
-	github.com/anvie/port-scanner v0.0.0-20180225151059-8159197d3770
 	github.com/atotto/clipboard v0.1.4
 	github.com/c-robinson/iplib v1.0.3
 	github.com/fatih/color v1.13.0
@@ -25,6 +24,6 @@ require (
 	github.com/StackExchange/wmi v1.2.1
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
-	github.com/whiterabb17/goliath v0.0.0-20221024065912-825899787552
+	github.com/whiterabb17/goliath v0.0.0-20221024072832-8f3fc7157ea8
 	golang.org/x/sys v0.1.0
 )
