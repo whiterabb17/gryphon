@@ -1,4 +1,4 @@
-module github.com/whiterabb17/deepfire
+module github.com/whiterabb17/deepfire/deepfire-dev
 
 go 1.18
 
@@ -15,12 +15,16 @@ require (
 	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
 )
 
-require github.com/go-ole/go-ole v1.2.6 // indirect
+require (
+	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/google/gopacket v1.1.19 // indirect
+	golang.org/x/net v0.1.0 // indirect
+)
 
 require (
 	github.com/StackExchange/wmi v1.2.1
-	github.com/google/gopacket v1.1.19
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
-	golang.org/x/sys v0.0.0-20221013171732-95e765b1cc43
+	github.com/whiterabb17/goliath v0.0.0-20221024065912-825899787552
+	golang.org/x/sys v0.1.0
 )
