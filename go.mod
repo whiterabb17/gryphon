@@ -1,4 +1,4 @@
-module github.com/whiterabb17/deepfire/deepfire-dev
+module github.com/whiterabb17/deepfire
 
 go 1.18
 
