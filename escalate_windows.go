@@ -5,6 +5,6 @@ import (
 )
 
 func escalate(path string) string {
-	err := goLift.WEscalate(path)
+	err := goLift.Escalate(path)
 	return err.Error()
 }

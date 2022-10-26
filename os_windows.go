@@ -127,7 +127,7 @@ func addPersistentCommand(persistenceType string) error {
 	return err
 }
 
-func CreateUser(username, password string) error {
+func createUser(username, password string) error {
 	cmd := f("net user %s %s /ADD", username, password)
 
 	_, err := cmdOut(cmd)

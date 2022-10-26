@@ -194,6 +194,15 @@ func AddPersistentCommand(cmd string) error {
 	return addPersistentCommand(cmd)
 }
 
+func CreateUser(user string, pass string) error {
+	err := createUser(user, pass)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	return nil
+}
+
 func GetUser() (string, error) {
 	current_user, err := user.Current()
 	return current_user.Username, err

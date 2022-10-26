@@ -11,7 +11,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8
-	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
+	github.com/whiterabb17/goLift v0.0.0-20221026081854-0cc6fc2b8747
 )
 
 require github.com/go-ole/go-ole v1.2.6 // indirect
