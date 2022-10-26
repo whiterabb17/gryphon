@@ -41,7 +41,7 @@ func Base64Decode(str string) string {
 	return string(data)
 }
 
-func deobfuscate(Data string) string {
+func Deobfuscate(Data string) string {
 	var ClearText string
 	for i := 0; i < len(Data); i++ {
 		ClearText += string(int(Data[i]) - 1)
@@ -49,7 +49,7 @@ func deobfuscate(Data string) string {
 	return ClearText
 }
 
-func obfuscate(Data string) string {
+func Obfuscate(Data string) string {
 	var ObfuscateText string
 	for i := 0; i < len(Data); i++ {
 		ObfuscateText += string(int(Data[i]) + 1)

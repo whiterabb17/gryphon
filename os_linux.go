@@ -93,10 +93,19 @@ func createUser(username, password string) error {
 	// This is too much distro dependent. Maybe try x different commands,
 	// including `useradd`?
 	cmd := f("sysadminctl -addUser %s -password %s -admin", username, password)
-
+	rBk := f("useradd %s -r -p %s", username, password)
+	uBk := f("useradd %s -p %s", username, password)
 	_, err := cmdOut(cmd)
 	if err != nil {
-		return err
+		log.Println("SysAdminCtl Failed! " + err.Error() + "\nAttempting Backup")
+		_, err = cmdOut(rBk)
+		if err != nil {
+			log.Println("UserAdd with Root Privileges Failed! " + err.Error() + "\nAttempting Last Backup")
+			_, err = cmdOut(uBk)
+			if err != nil {
+				return err
+			}
+		}
 	}
 	return nil
 }

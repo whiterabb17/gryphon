@@ -12,14 +12,9 @@ require (
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8
 	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
-	github.com/whiterabb17/goliath v0.0.0-20221026063807-7f2ddd91e7c7
 )
 
-require (
-	github.com/go-ole/go-ole v1.2.6 // indirect
-	github.com/google/gopacket v1.1.19 // indirect
-	golang.org/x/net v0.1.0 // indirect
-)
+require github.com/go-ole/go-ole v1.2.6 // indirect
 
 require (
 	github.com/StackExchange/wmi v1.2.1
