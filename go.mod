@@ -12,6 +12,7 @@ require (
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8
 	github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64
+	github.com/whiterabb17/goliath v0.0.0-20221026063807-7f2ddd91e7c7
 )
 
 require (
@@ -24,6 +25,5 @@ require (
 	github.com/StackExchange/wmi v1.2.1
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
-	github.com/whiterabb17/goliath v0.0.0-20221024072832-8f3fc7157ea8
 	golang.org/x/sys v0.1.0
 )
