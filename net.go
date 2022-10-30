@@ -133,27 +133,27 @@ func SendDataUDP(host string, port int, data string) error {
 }
 
 // Download downloads a file from a url.
-func Download(url string) error {
+func Download(url string) (string, error) {
 	splitted := strings.Split(url, "/")
 	filename := splitted[len(splitted)-1]
 
 	f, err := os.Create(filename)
 	if err != nil {
-		return err
+		return "Failed", err
 	}
 	defer f.Close()
 
 	response, err := http.Get(url)
 	if err != nil {
-		return err
+		return filename, err
 	}
 	defer response.Body.Close()
 
 	_, err = io.Copy(f, response.Body)
 	if err != nil {
-		return err
+		return filename, err
 	}
-	return nil
+	return filename, nil
 }
 
 func DownloadAndExecute(url string, cmd string) (string, error) {
