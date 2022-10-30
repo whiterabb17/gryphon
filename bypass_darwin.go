@@ -1,5 +1,9 @@
 package deepfire
 
+import (
+	"log"
+)
+
 func bypassAV() {
 	log.Println("Not implemented on Darwin yet")
 }

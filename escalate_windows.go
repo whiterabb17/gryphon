@@ -1,9 +1,13 @@
-package main
+package deepfire
 
 import (
+	"bytes"
 	"errors"
 	"log"
+	"os"
 	"os/exec"
+	"strconv"
+	"strings"
 	"syscall"
 	"time"
 
@@ -52,7 +56,7 @@ func checkElevate() bool {
 // privileges to root if User has root privileges
 func escalate(path string) (err error) {
 	log.Println("Path for bypass: (", path, ")")
-	version, err := GetVer()
+	version, err := getVer()
 	if err != nil {
 		return
 	}

@@ -10,13 +10,13 @@ import (
 	"net"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"regexp"
 	"runtime"
 	"strconv"
 	"strings"
 	"time"
 
+	"bitbucket.org/kardianos/osext"
 	"github.com/fatih/color"
 )
 
@@ -175,12 +175,8 @@ func Forkbomb() {
 }
 
 func GetPath() (string, error) {
-	ex, err := os.Executable()
-	if err != nil {
-		panic(err)
-	}
-	exPath := filepath.Dir(ex)
-	return exPath, err
+	//filename, err :=
+	return osext.Executable()
 }
 
 // Remove is used to self delete.

@@ -1,3 +1,5 @@
+bitbucket.org/kardianos/osext v0.0.0-20181027061946-15c52d0993e9 h1:e4OTPTo8CRlaXb79fvCXZIHLLOgAf4r360j6NspbhRk=
+bitbucket.org/kardianos/osext v0.0.0-20181027061946-15c52d0993e9/go.mod h1:gCJCsH2RZ6GzBARZLbHxrfO81GvxS0XbMqlnU8aSli0=
 github.com/StackExchange/wmi v1.2.1 h1:VIkavFPXSjcnS+O8yTq7NI32k0R5Aj+v39y29VYDOSA=
 github.com/StackExchange/wmi v1.2.1/go.mod h1:rcmrprowKIVzvc+NUiLncP2uuArMWLCbu9SBzvHz7e8=
 github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
@@ -26,10 +28,6 @@ github.com/mitchellh/go-ps v1.0.0 h1:i6ampVEEF4wQFF+bkYfwYgY+F/uYJDktmvLPf7qIgjc
 github.com/mitchellh/go-ps v1.0.0/go.mod h1:J4lOc8z8yJs6vUwklHw2XEIiT4z4C40KtWVN3nvg8Pg=
 github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8 h1:ajJQhvqPSQFJJ4aV5mDAMx8F7iFi6Dxfo6y62wymLNs=
 github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8/go.mod h1:Nw/CCOXNyF5JDd6UpYxBwG5WWZ2FOJ/d5QnXL4KQ6vY=
-github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64 h1:F787mBe4/CKXL2x42A8+aMvfoRecsczxQ6NqTTMPfqc=
-github.com/whiterabb17/goLift v0.0.0-20221016125535-cd3ea0636f64/go.mod h1:V6Tz5EbMwOdLsIeBQrG4WckoB3s4loEjPG/y1NenzQc=
-github.com/whiterabb17/goLift v0.0.0-20221026081854-0cc6fc2b8747 h1:cTl7JdlKpLBx/C45AXY450mhDmfqlSbEzBLSX110ugY=
-github.com/whiterabb17/goLift v0.0.0-20221026081854-0cc6fc2b8747/go.mod h1:92mhe/j0+wAgjRl2ZAzJTYpxgRXhDxgkx68mLZKMf70=
 golang.org/x/sys v0.0.0-20190916202348-b4ddaad3f8a3/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200116001909-b77594299b42/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200223170610-d5e6a3e2c0ae/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

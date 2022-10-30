@@ -3,6 +3,7 @@ module github.com/whiterabb17/deepfire
 go 1.18
 
 require (
+	bitbucket.org/kardianos/osext v0.0.0-20181027061946-15c52d0993e9
 	github.com/atotto/clipboard v0.1.4
 	github.com/c-robinson/iplib v1.0.3
 	github.com/fatih/color v1.13.0
@@ -11,7 +12,6 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/go-ps v1.0.0
 	github.com/savaki/jq v0.0.0-20161209013833-0e6baecebbf8
-	github.com/whiterabb17/goLift v0.0.0-20221026081854-0cc6fc2b8747
 )
 
 require github.com/go-ole/go-ole v1.2.6 // indirect
