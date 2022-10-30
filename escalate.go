@@ -1,5 +1,6 @@
-package deepfire
+package main
 
 func Escalate(path string) string {
-	return escalate(path)
+	err := escalate(path)
+	return err.Error()
 }

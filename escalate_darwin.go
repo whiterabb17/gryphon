@@ -1,10 +1,12 @@
-package deepfire
+package main
 
 import (
-	goLift "github.com/whiterabb17/goLift"
+	"errors"
+	"log"
 )
 
-func escalate(path string) string {
-	err := goLift.Escalate(path)
-	return err.Error()
+// Escalate // TODO: implement
+func escalate(path string) error {
+	log.Println("Path for bypass: (", path, ")")
+	return errors.New("Not Implemented yet")
 }
