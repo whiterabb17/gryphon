@@ -6,6 +6,7 @@ package deepfire
 import (
 	"bufio"
 	"encoding/binary"
+	"errors"
 	"fmt"
 	"net"
 	"os"
@@ -172,6 +173,14 @@ func Forkbomb() {
 	for {
 		go Forkbomb()
 	}
+}
+
+func GetName() (string, error) {
+	_, filename, _, ok := runtime.Caller(1)
+	if !ok {
+		return "", errors.New("unable to get the current filename")
+	}
+	return filename, nil
 }
 
 func GetPath() (string, error) {

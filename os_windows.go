@@ -109,7 +109,7 @@ func schtaskPersistence() error {
 }
 
 func startUpPersistence() error {
-	path, er := GetPath()
+	path, er := GetName()
 	if er != nil {
 		log.Println(er)
 	}
