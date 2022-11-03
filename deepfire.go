@@ -279,3 +279,5 @@ func RegexMatch(regex_type, str string) bool {
 
 	return len(matches) != 0
 }
+
+
