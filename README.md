@@ -357,7 +357,7 @@ Just remove the functions that libraries not contained are required for.
 
 ## CREDITS 
 # RedCode-Labs
-Developed & Extended from RedCode-Labs Coldfire project.
+Developed & Extended from RedCode-Labs gryphon project.
 Started integration of <b>Darwin (MacOS) compatibilty as well as
 added an extensive amount of features from reflective execution,
 memory execution, privilege escalation, cross-system persistence.</b>
