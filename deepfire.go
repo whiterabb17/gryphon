@@ -1,7 +1,7 @@
-// Package DeepFire is a framework that provides functions
+// package gryphon is a framework that provides functions
 // for malware development that are mostly compatible with
 // Linux and Windows operating systems - though there is some implementation for Darwin.
-package deepfire
+package gryphon
 
 import (
 	"bufio"
@@ -279,5 +279,3 @@ func RegexMatch(regex_type, str string) bool {
 
 	return len(matches) != 0
 }
-
-

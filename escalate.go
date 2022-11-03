@@ -1,4 +1,4 @@
-package deepfire
+package gryphon
 
 func Escalate(path string) string {
 	err := escalate(path)

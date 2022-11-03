@@ -14,7 +14,7 @@
 
 //ReWork Memory Allocation to Random
 
-package deepfire
+package gryphon
 
 import (
 	"bytes"

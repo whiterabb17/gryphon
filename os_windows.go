@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package deepfire
+package gryphon
 
 import (
 	"fmt"

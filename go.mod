@@ -1,4 +1,4 @@
-module github.com/whiterabb17/deepfire
+module github.com/whiterabb17/gryphon
 
 go 1.18
 

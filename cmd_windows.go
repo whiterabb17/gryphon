@@ -1,4 +1,4 @@
-package deepfire
+package gryphon
 
 import (
 	"os/exec"

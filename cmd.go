@@ -1,4 +1,4 @@
-package deepfire
+package gryphon
 
 import (
 	"fmt"
@@ -14,6 +14,7 @@ import (
 func CmdOut(command string) (string, error) {
 	return cmdOut(command)
 }
+
 /*
 func PwshOut(command string) (string, error) {
 	return pwsh(command)

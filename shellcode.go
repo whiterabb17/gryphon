@@ -1,4 +1,4 @@
-package deepfire
+package gryphon
 
 func InjectIntoProcess(process, args, data string) bool {
 	return injectIntoProcess(process, args, data)
