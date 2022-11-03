@@ -1,4 +1,4 @@
-package core
+package deepfire
 
 import (
 	"archive/zip"
