@@ -8,8 +8,6 @@ import (
 	"os/user"
 	"strings"
 	"syscall"
-
-	"github.com/mitchellh/go-ps"
 )
 
 func info() string {
