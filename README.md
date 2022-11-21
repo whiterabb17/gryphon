@@ -30,13 +30,13 @@
 
 ## Introduction
 
-ColdFire provides various methods useful for malware development in Golang.
+Gryphon provides various methods useful for malware development in Golang.
 
-Most functions are compatible with both Linux and Windows operating systems.
+Most functions are compatible with MacOS, Linux and Windows operating systems.
 
 ## Installation
 
-`go get github.com/redcode-labs/Coldfire`
+`go get github.com/whiterabb17/gryphon`
 
 ## Types of functions included
 
