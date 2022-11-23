@@ -11,23 +11,6 @@
   Golang malware development framework
 </p>
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Types of functions included](#types-of-functions-included)
-- [Documentation](#documentation)
-  - [Logging functions](#logging-functions)
-  - [Auxiliary functions](#auxiliary-functions)
-  - [Reconnaissance functions](#reconnaissance-functions)
-  - [Administration functions](#administration-functions)
-  - [Evasion functions](#evasion-functions)
-  - [Sandbox detection functions](#sandbox-detection-functions)
-  - [Disruptive functions](#disruptive-functions)
-- [Requirements](#requirements)
-- [Disclaimer](#disclaimer)
-
-
 ## Introduction
 
 Gryphon provides various methods useful for malware development in Golang.
@@ -371,6 +354,13 @@ run:
 ## NOTE
 Some features implemented use private libraries and therefore will not be available open source. 
 Just remove the functions that libraries not contained are required for.
+
+## CREDITS 
+# RedCode-Labs
+Developed & Extended from RedCode-Labs Coldfire project.
+Started integration of <b>Darwin (MacOS) compatibilty as well as
+added an extensive amount of features from reflective execution,
+memory execution, privilege escalation, cross-system persistence.</b>
 
 ## Disclaimer
 Developers are not responsible for any misuse regarding this tool.
