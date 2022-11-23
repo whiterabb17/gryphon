@@ -1,4 +1,4 @@
-
+[![CodeFactor](https://www.codefactor.io/repository/github/whiterabb17/gryphon/badge)](https://www.codefactor.io/repository/github/whiterabb17/gryphon)
 
 <h1 align="center"> Gryphon</h1> <br>
 <p align="center">
