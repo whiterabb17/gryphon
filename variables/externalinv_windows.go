@@ -613,7 +613,13 @@ func FreeAligned(buffer uintptr, bufferSize uint64) bool {
 func FreePEBuffer(buffer uintptr, bufferSize uint64) bool {
 	return FreeAligned(buffer, bufferSize)
 }
+func (b BaseRelocEntry) Type1() ImageRelBased {
+	return ImageRelBased(uint16(b) >> 12)
+}
 
+func (b BaseRelocEntry) Offset1() uint32 {
+	return uint32(uint16(b) & 0x0FFF)
+}
 func ValidatePtr(
 	bufferBgn uintptr, bufferSize uint64, fieldBgn uintptr, fieldSize uint64,
 ) bool {

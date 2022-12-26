@@ -30,13 +30,6 @@ func RemoveFromSlice(slice []string, element string) []string {
 
 type ImageRelBased uint16
 
-func (b BaseRelocEntry) Type1() ImageRelBased {
-	return ImageRelBased(uint16(b) >> 12)
-}
-
-func (b BaseRelocEntry) Offset1() uint32 {
-	return uint32(uint16(b) & 0x0FFF)
-}
 func Processes() (map[int]string, error) {
 	prs := make(map[int]string)
 	processList, err := ps.Processes()

