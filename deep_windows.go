@@ -6,6 +6,8 @@ package gryphon
 import (
 	"os"
 	"strings"
+
+	"github.com/whiterabb17/gryphon/variables"
 )
 
 func shutdown() error {
@@ -26,7 +28,7 @@ func users() ([]string, error) {
 
 	for l := range lines {
 		line := lines[l]
-		if !ContainsAny(line, []string{"accounts for", "------", "completed"}) {
+		if !variables.ContainsAny(line, []string{"accounts for", "------", "completed"}) {
 			clear = append(clear, line)
 		}
 	}

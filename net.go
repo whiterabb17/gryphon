@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/jackpal/gateway"
+	"github.com/whiterabb17/gryphon/variables"
 )
 
 // GetGlobalIp is used to return the global Ip address of the machine.
@@ -173,7 +174,7 @@ func ExpandCidr(cidr string) ([]string, error) {
 	}
 
 	var ips []string
-	for ip := ip.Mask(ipnet.Mask); ipnet.Contains(ip); IpIncrement(ip) {
+	for ip := ip.Mask(ipnet.Mask); ipnet.Contains(ip); variables.IpIncrement(ip) {
 		ips = append(ips, ip.String())
 	}
 

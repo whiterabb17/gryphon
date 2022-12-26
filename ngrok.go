@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/savaki/jq"
+	"github.com/whiterabb17/gryphon/variables"
 )
 
 // StartNgrokTCP exposes a TCP server on a given port.
@@ -41,7 +42,7 @@ func GetNgrokURL() (string, error) {
 	json_2, _ := jq_op_2.Apply(json_1)
 	jq_op_3, _ := jq.Parse(".public_url")
 	json_3, _ := jq_op_3.Apply(json_2)
-	json_sanitized := FullRemove(string(json_3), `"`)
+	json_sanitized := variables.FullRemove(string(json_3), `"`)
 
 	return json_sanitized, nil
 }
