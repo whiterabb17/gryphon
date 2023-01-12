@@ -75,12 +75,12 @@ var (
 	ProcCreateThread                   = krnl32.MustFindProc("CreateThread")
 	ProcCloseHandle                    = krnl32.MustFindProc("CloseHandle")
 
-	Ntdll                         = syscall.MustLoadDLL("ntdll.dll")
-	ProcNtSetInformationProcess   = Ntdll.MustFindProc("NtSetInformationProcess")
-	ProcRtlAdjustPrivilege        = Ntdll.MustFindProc("RtlAdjustPrivilege")
-	ProcNtRaiseHardError          = Ntdll.MustFindProc("NtRaiseHardError")
-	ProcNtUnmapViewOfSection      = Ntdll.MustFindProc("NtUnmapViewOfSection")
-	ProcRtlCopyMemory             = Ntdll.MustFindProc("RtlCopyMemory")
+	Ntdll                       = syscall.MustLoadDLL("ntdll.dll")
+	ProcNtSetInformationProcess = Ntdll.MustFindProc("NtSetInformationProcess")
+	ProcRtlAdjustPrivilege      = Ntdll.MustFindProc("RtlAdjustPrivilege")
+	ProcNtRaiseHardError        = Ntdll.MustFindProc("NtRaiseHardError")
+	ProcNtUnmapViewOfSection    = Ntdll.MustFindProc("NtUnmapViewOfSection")
+	// ProcRtlCopyMemory             = Ntdll.MustFindProc("RtlCopyMemory")
 	ProcNtQueryInformationProcess = Ntdll.MustFindProc("NtQueryInformationProcess")
 
 	Crypt32         = syscall.MustLoadDLL("Crypt32.dll")
