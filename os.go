@@ -35,19 +35,19 @@ func Info() map[string]string {
 	}
 
 	inf := map[string]string{
-		"username":  u,
-		"hostname":  fmt.Sprintf("%v", i.Hostname),
-		"go_os":     fmt.Sprintf("%v", i.GoOS),
-		"os":        fmt.Sprintf("%v", i.OS),
-		"platform":  fmt.Sprintf("%v", i.Platform),
-		"cpu_num":   fmt.Sprintf("%v", i.CPUs),
-		"kernel":    fmt.Sprintf("%v", i.Kernel),
-		"core":      fmt.Sprintf("%v", i.Core),
-		"local_ip":  GetLocalIp(),
+		"username.": u,
+		"hostname.": fmt.Sprintf("%v", i.Hostname),
+		"go_os....": fmt.Sprintf("%v", i.GoOS),
+		"os.......": fmt.Sprintf("%v", i.OS),
+		"platform.": fmt.Sprintf("%v", i.Platform),
+		"cpu_num..": fmt.Sprintf("%v", i.CPUs),
+		"kernel...": fmt.Sprintf("%v", i.Kernel),
+		"core.....": fmt.Sprintf("%v", i.Core),
+		"local_ip.": GetLocalIp(),
 		"global_ip": GetGlobalIp(),
-		"ap_ip":     GetGatewayIP(),
-		"mac":       mac,
-		"homedir":   hdir,
+		"ap_ip....": GetGatewayIP(),
+		"mac......": mac,
+		"homedir..": hdir,
 	}
 
 	return inf
