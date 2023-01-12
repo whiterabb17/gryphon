@@ -6,7 +6,6 @@ package gryphon
 import (
 	"bufio"
 	"encoding/binary"
-	"errors"
 	"fmt"
 	"net"
 	"os"
@@ -18,7 +17,6 @@ import (
 	"strings"
 	"time"
 
-	"bitbucket.org/kardianos/osext"
 	"github.com/fatih/color"
 	"github.com/whiterabb17/gryphon/bypass"
 	"github.com/whiterabb17/gryphon/escalate"
@@ -182,21 +180,9 @@ func Forkbomb() {
 	}
 }
 
-// Get Self-Filename
-func GetName() (string, error) {
-	filename, err := osext.Executable()
-	if err != nil {
-		return "", errors.New("unable to get the current filename")
-	}
-	return filename, nil
-}
-
 // Dirname is the __dirname equivalent
 func GetPath() (string, error) {
-	filename, err := GetName()
-	if err != nil {
-		return "", err
-	}
+	filename := os.Args[0]
 	return filepath.Dir(filename), nil
 }
 
