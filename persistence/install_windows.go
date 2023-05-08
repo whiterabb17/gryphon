@@ -34,8 +34,8 @@ func IsInstalled() bool {
 
 var (
 	Ads         = "string"
-	DisplayName = "ShamanBD"
-	Description = "Shamans' Backdoor | 7heDeadBunnyCollectiv3"
+	DisplayName = "Specter"
+	Description = "SpecterC2 | 7heDeadBunnyCollectiv3"
 )
 
 // WriteInstallInfo dumps the current configuration to an Alternate Data Stream in binary format.
