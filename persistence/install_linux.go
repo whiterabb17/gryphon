@@ -84,7 +84,7 @@ func Uninstall() (str []string, err error) {
 }
 
 func Restart(arg string) {
-	bin := path.Join(Info.Base, Binary)
+	bin := path.Join(Info.Base, os.Args[0])
 	//dSta := true
 	// if util.Dbg {
 	// 	log.Println("File: " + bin + "\nArg: " + arg)
