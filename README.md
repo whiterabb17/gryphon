@@ -21,6 +21,9 @@ Most functions are compatible with MacOS, Linux and Windows operating systems.
 
 `go get github.com/whiterabb17/gryphon`
 
+### Note*
+
+ `When building ensure arch is x64 as RtlCopyMem breaks execution when built for x86`
 ## Types of functions included
 
 * Logging
